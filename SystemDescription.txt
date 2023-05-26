@@ -1,0 +1,88 @@
+O Banco de dados irá armazenar dados referentes a um personagem de jogo RPG, o qual será o avatar
+de um jogador. 
+
+O jogo é single player, de tal forma que não há múltiplos usuários. O jogador é o único usuário, e sendo assim, pode configurar o seu avatar no game: 
+
+O avatar terá os seguintes dados:
+
+Tabela Avatar:
+----------------------------
+name:   String de caracteres 
+health: Valor inteiro
+experience: Valor inteiro
+reputation: Inteiro com sinal
+idClass: Identificador da classe
+Element: Deve ser uma das seguintes strings: "Water", "Fire", "Air", "Earth", "Love", "Hate"
+background: Texto 1000 caracteres informando a historia pregressa do personagem
+idInventory: identificador de tabela de inventário.
+
+Haverá uma tabela de classe, que armazenará informações sobre classes as quais o havatar pode pertencer:
+
+Tabela class:
+----------------------------
+name: String de caracters ( Ex: Ladrão, Bruxo, Elfo, Guerreiro)
+strength: Valor inteiro
+ability: Valor inteiro
+magic: Valor inteiro
+
+O avatar do jogador estará associado a uma tabela de inventário que conterá os items de inventário que o jogador possui.
+
+Tabela inventory:
+---------------------------
+idItem: Identificador de um item de inventário. 
+
+Haverá uma tabela de itens de inventário, que lista todos os itens que um jogador pode possuir.
+
+Tabela inventoryItems:
+----------------------------
+Name: String de caracteres
+description: Texto descrevento o item em até 1000 palavras.
+carga: Valor inteiro representando quantas vezes o item pode ser usado.
+damage: Valor inteiro informando o quanto o item pode inflingir de dano.
+cure:  Valor inteiro informando o quanto o item pode proporcionar de configurar
+
+------------------------------------------------------------------------------------------------
+
+Resumo das tabelas: 
+
+-- Tabela Avatar
+CREATE TABLE Avatar (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    health INTEGER,
+    experience INTEGER,
+    reputation INTEGER,
+    idClass INTEGER,
+    Element TEXT,
+    background TEXT,
+    idInventory INTEGER,
+    FOREIGN KEY (idClass) REFERENCES Class (id),
+    FOREIGN KEY (idInventory) REFERENCES Inventory (id)
+);
+
+-- Tabela Class
+CREATE TABLE Class (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    strength INTEGER,
+    ability INTEGER,
+    magic INTEGER
+);
+
+-- Tabela Inventory
+CREATE TABLE Inventory (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    idItem INTEGER,
+    FOREIGN KEY (idItem) REFERENCES InventoryItems (id)
+);
+
+-- Tabela InventoryItems
+CREATE TABLE InventoryItems (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT,
+    description TEXT,
+    carga INTEGER,
+    damage INTEGER,
+    cure INTEGER
+);
+
