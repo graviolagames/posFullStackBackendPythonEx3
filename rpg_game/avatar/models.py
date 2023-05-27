@@ -6,7 +6,8 @@ class Class(models.Model):
     strength = models.IntegerField()
     ability = models.IntegerField()
     magic = models.IntegerField()
-
+    def __str__(self):
+        return self.name
 
 class InventoryItems(models.Model):
     name = models.CharField(max_length=100)
@@ -14,7 +15,14 @@ class InventoryItems(models.Model):
     carga = models.IntegerField()
     damage = models.IntegerField()
     cure = models.IntegerField()
+    def __str__(self):
+        return self.name
 
+class Inventory(models.Model):
+    name = models.CharField(max_length=100)
+    idItem = models.ForeignKey(InventoryItems, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
 class Avatar(models.Model):
     name = models.CharField(max_length=100)
@@ -24,4 +32,6 @@ class Avatar(models.Model):
     idClass = models.ForeignKey(Class, on_delete=models.CASCADE)
     Element = models.CharField(max_length=100)
     background = models.TextField()
-    idInventory = models.ForeignKey(InventoryItems, on_delete=models.CASCADE)
+    idInventory = models.ForeignKey(Inventory, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
