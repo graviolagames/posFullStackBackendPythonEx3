@@ -4,7 +4,14 @@
 <h1>Avatar</h1>
 <ul>
   {% for avatar in avatars %}
-    <li>{{ avatar.name }} - Health: {{ avatar.health }}</li>
+    <h1>{{ avatar.name }}</h1>
+    <li>Health: {{ avatar.health }}, 
+      Experience: {{avatar.experience}}, 
+      Reputation: {{avatar.reputation}},
+      Element: {{avatar.element}}
+    </li>
+    <h5>Background:</h5>
+    <h6>{{avatar.background}}</h6>
   {% endfor %}
 </ul>
 {% endblock %}
