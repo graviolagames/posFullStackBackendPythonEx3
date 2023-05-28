@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Class(models.Model):
+class AvatarClass(models.Model):
     name = models.CharField(max_length=100)
     strength = models.IntegerField()
     ability = models.IntegerField()
@@ -14,7 +14,7 @@ class Avatar(models.Model):
     health = models.IntegerField()
     experience = models.IntegerField()
     reputation = models.IntegerField()
-    idClass = models.ForeignKey(Class, on_delete=models.CASCADE)
+    avatarClass = models.ForeignKey(AvatarClass, on_delete=models.CASCADE)
     Element = models.CharField(max_length=100)
     background = models.TextField()
     def __str__(self):

@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
                 ('reputation', models.IntegerField()),
                 ('Element', models.CharField(max_length=100)),
                 ('background', models.TextField()),
-                ('idClass', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='avatar.class')),
+                ('class', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='avatar.class')),
                 ('idInventory', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='avatar.inventoryitems')),
             ],
         ),

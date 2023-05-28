@@ -11,7 +11,7 @@ name:   String de caracteres
 health: Valor inteiro
 experience: Valor inteiro
 reputation: Inteiro com sinal
-idClass: Identificador da classe
+avatarClass: Identificador da classe
 Element: Deve ser uma das seguintes strings: "Water", "Fire", "Air", "Earth", "Love", "Hate"
 background: Texto 1000 caracteres informando a historia pregressa do personagem
 idInventory: identificador de tabela de inventário.
@@ -52,16 +52,16 @@ CREATE TABLE Avatar (
     health INTEGER,
     experience INTEGER,
     reputation INTEGER,
-    idClass INTEGER,
+    avatarClass INTEGER,
     Element TEXT,
     background TEXT,
     idInventory INTEGER,
-    FOREIGN KEY (idClass) REFERENCES Class (id),
+    FOREIGN KEY (avatarClass) REFERENCES AvatarClass (id),
     FOREIGN KEY (idInventory) REFERENCES Inventory (id)
 );
 
 -- Tabela Class
-CREATE TABLE Class (
+CREATE TABLE AvatarClass (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     strength INTEGER,
