@@ -4,7 +4,9 @@
   <h1>Inventory</h1>
   <ul>
     {% for avatarItem in inventory %}
-      <li>{{avatarItem.item.name }}</li>
+      <li> 
+        <a href="/inventory_item/{{avatarItem.item.id}}/">{{avatarItem.item.name }}.</a>
+      </li>  
     {% empty %}
       <li>No items in inventory.</li>
     {% endfor %}
