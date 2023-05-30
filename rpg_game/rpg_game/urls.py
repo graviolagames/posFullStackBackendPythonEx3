@@ -17,6 +17,7 @@ Including another URLconf
 from django.views import View
 from avatar.views import AvatarView
 from inventory.views import InventoryView
+from inventory.views import InventoryItemView
 from django.contrib import admin
 from django.urls import path
 
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('avatar/', AvatarView.as_view(), name='avatar'),
     path('inventory/<int:avatar_id>/', InventoryView.as_view(), name='inventory'),
+    path('inventory_item/<int:item_id>/', InventoryItemView.as_view(), name='inventoryItem'),
 ]

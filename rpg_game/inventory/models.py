@@ -5,7 +5,7 @@ from avatar.models import Avatar
 class InventoryItems(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    carga = models.IntegerField()
+    load = models.IntegerField()
     damage = models.IntegerField()
     cure = models.IntegerField()
     def __str__(self):

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Inventory item: {{invItem.name}}.</h1>
+  <h2>Load: {{invItem.load}}</h2>
+  <h2>Damage: {{invItem.damage}}</h2>
+  <h2>cure: {{invItem.cure}}</h2>
+  <h2>Description: </h2>
+  <p>{{invItem.description}}</p>
+{% endblock %}
