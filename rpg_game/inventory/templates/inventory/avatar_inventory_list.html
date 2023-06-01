@@ -2,13 +2,16 @@
 
 {% block content %}
   <h1>Inventory</h1>
-  <ul>
+  <div class="card-columns">
     {% for avatarItem in inventory %}
-      <li> 
-        <a href="/inventory_item/{{avatarItem.item.id}}/">{{avatarItem.item.name }}.</a>
-      </li>  
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ avatarItem.item.name }}</h5>
+          <a href="/inventory_item/{{ avatarItem.item.id }}/" class="card-link">View Item</a>
+        </div>
+      </div>
     {% empty %}
-      <li>No items in inventory.</li>
+      <p>No items in inventory.</p>
     {% endfor %}
-  </ul>
+  </div>
 {% endblock %}

@@ -1,10 +1,20 @@
 {% extends "baseInventory.html" %}
 
 {% block content %}
-  <h1>Inventory item: {{invItem.name}}.</h1>
-  <h2>Load: {{invItem.load}}</h2>
-  <h2>Damage: {{invItem.damage}}</h2>
-  <h2>cure: {{invItem.cure}}</h2>
-  <h2>Description: </h2>
-  <p>{{invItem.description}}</p>
+  <h1>Inventory item: {{ invItem.name }}.</h1>
+  <div class="row">
+    <div class="col-sm-3">
+      <h2>Load: {{ invItem.load }}</h2>
+      <h2>Damage: {{ invItem.damage }}</h2>
+      <h2>Cure: {{ invItem.cure }}</h2>
+    </div>
+    <div class="col-sm-9">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Description</h5>
+          <p class="card-text">{{ invItem.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
